@@ -8,6 +8,8 @@
 *
 
 */
+
+//try and use ranfd function
 #include<stdio.h> //header file
 #include<stdlib.h>
 

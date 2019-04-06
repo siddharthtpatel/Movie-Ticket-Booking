@@ -10,6 +10,7 @@
 */
 
 //try and use ranfd function
+
 #include<stdio.h> //header file
 #include<stdlib.h>
 
@@ -136,22 +137,14 @@ void ticket()//function of printing ticket
 	printf("\n\t\t|           Enjoy your show           |");
 	printf("\n\t\t ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
 	
-	printf("\n\n\t Enter\n\n\t 'p' to print ticket\n\n\t 'e' to edit");
+	printf("\n\n\t Enter\n\n\t 'e' to edit\n\n\t 'o' to exit");
 	printf("\n\n\t Enter :  ");
 	fflush(stdin);
 	scanf("%c", &choice);
 	switch(choice)
 	{	
-		case 'p':
-			printf("\n\n\t\t ____________________________________");
-			printf("\n\t\t| Movie id: %d                       |", movie_id[i]);
-			printf("\n\t\t| customer id: %d     customer type: %c |", customer_id[i], customer_type[i]);
-			printf("\n\t\t| Date=%d/%d/%d   Time=%d:%d        |", date[i], month[i], year[i],time_h[i], time_m[i]);
-			printf("\n\t\t| No. of seats=%d   Ticket price=100   |", no_seats[i], ticket_price);
-			printf("\n\t\t| Total amount= %.2f                |", total_amount[i]);
-			printf("\n\t\t|           Enjoy your show           |");
-			printf("\n\t\t ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-			getch();
+		case 'o':
+			exit(0);
 			break;
 		case 'e':
 			//editing function

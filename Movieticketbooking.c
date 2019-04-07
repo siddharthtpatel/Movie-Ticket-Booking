@@ -20,7 +20,8 @@
 	float total_amt, total_amount[20]; //variable declaration
 
 void new_entry()//function to take new entry
-{
+{	
+	re:
     	printf("\n\t\t WELCOME TO RAVANGERS MOVIE TICKET BOOKINGS");
 	printf("\n\t\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
 	printf("\n\n\n Movie ids :\t\t\t\t\t\t DISCOUNTS:  \n\n AVENGERS - 121 \t\t\t\t\t regular customer - 10%% discount \n\n JUSTICE LEAGUE - 232 \t\t\t\t\t age < 10 - 5%% discount \n\n DEADPOOL - 313 \n\n XMEN - 424  ");//information for the customer
@@ -46,7 +47,7 @@ void new_entry()//function to take new entry
 	printf("\n\n  The ticket price is Rs 100 ");
 	getch();
 	
-	printf("\n\n\t Enter\n\n\t 'p' to print ticket\\n\n\t 'c' to see customer details");
+	printf("\n\n\t Enter\n\n\t 'p' to print ticket\n\n\t 'r' to re-enter the details");
 	printf("\n\n\t Enter :  ");
 	fflush(stdin);
 	scanf("%c", &choice);
@@ -61,10 +62,8 @@ void new_entry()//function to take new entry
 				break;
 
 			//printing customer details
-			case 'c':
-				printf("\n\tcustomer id: %d", customer_id[i]);
-				printf("\n\tcustomer type: %c", customer_type[i]);
-				printf("customer age: %d", age[i]);
+			case 'r':
+				goto re;
 				getch();
 				break;
 

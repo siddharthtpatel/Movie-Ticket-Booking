@@ -46,7 +46,7 @@ void new_entry()//function to take new entry
 	printf("\n\n  The ticket price is Rs 100 ");
 	getch();
 	
-	printf("\n\n\t Enter\n\n\t 'p' to print ticket\n\n\t 'm' to see the  movie details\n\n\t 'c' to see customer details");
+	printf("\n\n\t Enter\n\n\t 'p' to print ticket\\n\n\t 'c' to see customer details");
 	printf("\n\n\t Enter :  ");
 	fflush(stdin);
 	scanf("%c", &choice);
@@ -65,17 +65,6 @@ void new_entry()//function to take new entry
 				printf("\n\tcustomer id: %d", customer_id[i]);
 				printf("\n\tcustomer type: %c", customer_type[i]);
 				printf("customer age: %d", age[i]);
-				getch();
-				break;
-
-			//printing movie details
-			case 'm':
-				printf("\n\tMovie id: %d", movie_id[i]);
-				printf("\n\tMovie Date=%d/%d/%d", date[i], month[i], year[i]);
-				printf("\n\tMovie Time=%d:%d",time_h[i], time_m[i]);
-				printf("\n\tNumber of seats=%d", no_seats[i]);
-				printf("\n\tThe ticket price is Rs 100 ");
-				printf("\n\tTotal amount= %.2f", total_amount[i]);
 				getch();
 				break;
 

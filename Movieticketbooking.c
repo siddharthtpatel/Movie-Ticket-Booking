@@ -3,8 +3,8 @@
 *
 
     Author: Siddharth
-    MOVIE TICKET BOOKING C PROGRAM
-
+    MOVIE TICKET BOOKING PLATFORM USING C
+    
 *
 
 */
@@ -125,14 +125,25 @@ void ticket()//function of printing ticket
 	printf("\n\t\t|           Enjoy your show           |");
 	printf("\n\t\t ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
 	
-	printf("\n\n\t Enter\n\n\t 'e' to edit\n\n\t 'o' to exit");
+	printf("\n\n\t Enter\n\t 'e' to edit\n\t 'p' to print ticket\n\t 'o' to exit");
 	printf("\n\n\t Enter :  ");
 	fflush(stdin);
 	scanf("%c", &choice);
 	switch(choice)
 	{	
+		case 'p': 
+			system("cls");
+			printf("\n\n\t\t ____________________________________");
+			printf("\n\t\t| Movie id: %d                       |", movie_id[i]);
+			printf("\n\t\t| customer id: %d     customer type: %c |", customer_id[i], customer_type[i]);
+			printf("\n\t\t| Date=%d/%d/%d   Time=%d:%d        |", date[i], month[i], year[i],time_h[i], time_m[i]);
+			printf("\n\t\t| No. of seats=%d   Ticket price=100   |", no_seats[i], ticket_price);
+			printf("\n\t\t| Total amount= %.2f                |", total_amount[i]);
+			printf("\n\t\t|           Enjoy your show           |");
+			printf("\n\t\t ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+			getch();
+			break;
 		case 'o':
-			exit(0);
 			break;
 		case 'e':
 			//editing function
@@ -198,7 +209,7 @@ int main()
 	printf("\n\t\t WELCOME TO RAVANGERS MOVIE TICKET BOOKINGS");
 	printf("\n\t\t ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
 
-	printf("\n\nENTER \n\t '1' to take a new entry \n\t '2' search entry \n\t '3' view privious ticket \n\t '4' edit entry \n\t 'e' to exit\n\n\t--> ");
+	printf("\n\nENTER \n\t '1' to take a new entry \n\t '2' search entry \n\t '3' view privious ticket \n\t 'e' to exit\n\n\t--> ");
 	fflush(stdin);
 	scanf("%c", &choice);
  	switch(choice)
@@ -214,12 +225,6 @@ int main()
 
 			case '3'://viewing previous ticket
 				ticket();
-				getch();
-				break;
-
-
-			case '4'://editing
-				//editing function
 				getch();
 				break;
 

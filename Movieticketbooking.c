@@ -2,7 +2,7 @@
 
 *
 
-    Author: Siddharth
+    Author: Siddharth Patel
     MOVIE TICKET BOOKING PLATFORM USING C
     
 *
@@ -47,7 +47,7 @@ void new_entry()//function to take new entry
 	printf("\n\n  The ticket price is Rs 100 ");
 	getch();
 	
-	printf("\n\n\t Enter\n\n\t 'p' to print ticket\n\n\t 'r' to re-enter the details");
+	printf("\n\n\t Enter\n\n\t 'p' to print ticket\n\n\t 'r' to reset the details");
 	printf("\n\n\t Enter :  ");
 	fflush(stdin);
 	scanf("%c", &choice);

@@ -219,9 +219,11 @@ int main()
 				getch();
 				break;
 
-			case '2'://searching
+			/*
+			case '2':searching
 				search();
-				break;
+				break
+			*/
 
 			case '3'://viewing previous ticket
 				ticket();

@@ -154,19 +154,20 @@ void ticket()//function of printing ticket
 
 
 void calculation()//function to calculate ticket price
-	if(c[i].age<10 && customer_type=='r' )
+{
+	if(c[i].age<10 && c[i].customer_type=='r' )
 	{
 		total_amt=c[i].no_seats*85;
 	}
-	else if(c[i].age<10 && customer_type=='t')
+	else if(c[i].age<10 && c[i].customer_type=='t')
 	{
 		total_amt=95*c[i].no_seats;
 	}
-	else if(c[i].age>=10 && customer_type=='r' )
+	else if(c[i].age>=10 && c[i].customer_type=='r' )
 	{
 		total_amt=90*c[i].no_seats;
 	}
-	else if(c[i].age>=10 && customer_type=='t')
+	else if(c[i].age>=10 && c[i].customer_type=='t')
 	{
 		total_amt==100;
 	}
@@ -223,7 +224,7 @@ void main()
 
             case '2'://searching
                 search();
-                break
+                break;
 
             case 'e'://exit
                 g=1;
@@ -236,5 +237,4 @@ void main()
         n++;
     }
 
-    return 0;
 }

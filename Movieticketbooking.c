@@ -1,12 +1,9 @@
 /*
-
 *
-
     Author: Siddharth Patel
     MOVIE TICKET BOOKING PLATFORM USING C
-    
-*
 
+*
 */
 
 //try and use ranfd function
@@ -15,21 +12,21 @@
 #include<stdlib.h>
 
 	int movie_id[20], customer_id[20], no_seats[20], date[20], month[20], year[20], time_h[20], time_m[20], ticket_price, age[20], users, i, search_id;
-	int low, high, mid, login_id, password;
+	int low, high, mid, login_id, password, g;
 	char customer_type[20], r, t, ignore, choice, p, b, c, m;
 	float total_amt, total_amount[20]; //variable declaration
 
 void new_entry()//function to take new entry
-{	
+{
 	re:
-    	printf("\n\t\t WELCOME TO RAVANGERS MOVIE TICKET BOOKINGS");
+    printf("\n\t\t WELCOME TO RAVANGERS MOVIE TICKET BOOKINGS");
 	printf("\n\t\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
 	printf("\n\n\n Movie ids :\t\t\t\t\t\t DISCOUNTS:  \n\n AVENGERS - 121 \t\t\t\t\t regular customer - 10%% discount \n\n JUSTICE LEAGUE - 232 \t\t\t\t\t age < 10 - 5%% discount \n\n DEADPOOL - 313 \n\n XMEN - 424  ");//information for the customer
 
 	//customer details
 	printf("\n\n\t Enter the customer id: ");
 	scanf("%d", &customer_id[i]);
-	printf("\n\n\t Enter the customer type (r=regular, t=temprory): ");
+	printf("\n\n\t Enter the customer type (r=regular, t=temporary): ");
 	fflush(stdin); /*to remove the buffer memory*/
 	scanf("%c", &customer_type[i]);
 	printf("\n\n\t Enter the customer's age: ");
@@ -46,7 +43,7 @@ void new_entry()//function to take new entry
 	scanf("%d", &no_seats[i]);
 	printf("\n\n  The ticket price is Rs 100 ");
 	getch();
-	
+
 	printf("\n\n\t Enter\n\n\t 'p' to print ticket\n\n\t 'r' to reset the details");
 	printf("\n\n\t Enter :  ");
 	fflush(stdin);
@@ -57,7 +54,7 @@ void new_entry()//function to take new entry
 		{
 			//printing ticket
 			case 'p':
-                       		ticket();
+                ticket();
 				getch();
 				break;
 
@@ -72,6 +69,7 @@ void new_entry()//function to take new entry
 				printf("\n\n\t INVALID INPUT");
 				getch();
 		}
+}
 
 void search()//searching functions
 {
@@ -99,7 +97,6 @@ void search()//searching functions
 			printf("\n\tNumber of seats=%d", no_seats[mid]);
 			printf("\n\tTotal amount= %.2f", total_amount[mid]);
 			getch();
-			breal;
 
 		}
 		else if(customer_id[mid]<search_id)
@@ -124,35 +121,23 @@ void ticket()//function of printing ticket
 	printf("\n\t\t| Total amount= %.2f                |", total_amount[i]);
 	printf("\n\t\t|           Enjoy your show           |");
 	printf("\n\t\t ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-	
-	printf("\n\n\t Enter\n\t 'e' to edit\n\t 'p' to print ticket\n\t 'o' to exit");
+
+	printf("\n\n\t Enter\n\t 'e' to edit and reenter the values\n\t 'm' to go back to the menu");
 	printf("\n\n\t Enter :  ");
 	fflush(stdin);
 	scanf("%c", &choice);
 	switch(choice)
-	{	
-		case 'p': 
-			system("cls");
-			printf("\n\n\t\t ____________________________________");
-			printf("\n\t\t| Movie id: %d                       |", movie_id[i]);
-			printf("\n\t\t| customer id: %d     customer type: %c |", customer_id[i], customer_type[i]);
-			printf("\n\t\t| Date=%d/%d/%d   Time=%d:%d        |", date[i], month[i], year[i],time_h[i], time_m[i]);
-			printf("\n\t\t| No. of seats=%d   Ticket price=100   |", no_seats[i], ticket_price);
-			printf("\n\t\t| Total amount= %.2f                |", total_amount[i]);
-			printf("\n\t\t|           Enjoy your show           |");
-			printf("\n\t\t ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-			getch();
-			break;
-		case 'o':
+	{
+		case 'm':
 			break;
 		case 'e':
-			//editing function
+            new_entry();
 			break;
 		default :
 			printf("\n\n\t INVALID INPUT");
 			getch();
-	}		
-}		
+	}
+}
 
 
 void calculation()//function to calculate ticket price
@@ -179,66 +164,66 @@ void calculation()//function to calculate ticket price
 }
 
 
-int main()
+void main()
 {
     restart:
-    	system("cls");
+    system("cls");
 	printf("\n\t\t WELCOME TO RAVANGERS MOVIE TICKET BOOKINGS");
 	printf("\n\t\t ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
 	printf("\n\tLOGIN PAGE\n");
-	printf("\n\n\tEnter login ID:");
+	printf("\n\n\tEnter login ID: ");
 	scanf("%d",&login_id);
-	printf("\n\tEnter Password:");
+	printf("\n\tEnter Password: ");
 	scanf("%d",&password);
 
 	if(login_id==12345 && password==0000)
 	{
 	    goto ui;
 	}
-    	else
-    	{
+    else
+    {
 	    system("cls");
-            printf("\n Wrong Password or Login Id try again");
-            getch();
-            goto restart;
+        printf("\n Wrong Password or Login Id try again");
+        getch();
+        goto restart;
 	}
+    g=0;
 
-	ui:
-	system("cls");
+    while(g!=1)
+    {
+        ui:
+        system("cls");
 
-	printf("\n\t\t WELCOME TO RAVANGERS MOVIE TICKET BOOKINGS");
-	printf("\n\t\t ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+        printf("\n\t\t WELCOME TO RAVANGERS MOVIE TICKET BOOKINGS");
+        printf("\n\t\t ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+        printf("\n\tMAIN MENU\n");
+        printf("\n\n\tENTER \n\t '1' to take a new entry \n\t '2' search ticket \n\t 'e' to exit\n\n\t--> ");
+        fflush(stdin);
+        scanf("%c", &choice);
 
-	printf("\n\nENTER \n\t '1' to take a new entry \n\t '2' search entry \n\t '3' view privious ticket \n\t 'e' to exit\n\n\t--> ");
-	fflush(stdin);
-	scanf("%c", &choice);
- 	switch(choice)
-		{
-			case '1'://new entry
-                   		new_entry();
-				getch();
-				break;
+        switch(choice)
+            {
+                case '1'://new entry
+                    new_entry();
+                    getch();
+                    break;
 
-			/*
-			case '2':searching
-				search();
-				break
-			*/
-
-			case '3'://viewing previous ticket
-				ticket();
-				getch();
-				break;
-
-			case 'e'://exit
-				break;
-
-			default :
-				printf("\n\n\t INVALID INPUT");
-				getch();
-		}
+                /*
+                case '2':searching
+                    search();
+                    break
+                */
 
 
-	return 0;
+                case 'e'://exit
+                    g=1;
+                    break;
 
+                default :
+                    printf("\n\n\t INVALID INPUT");
+                    getch();
+            }
+    }
+
+    return 0;
 }

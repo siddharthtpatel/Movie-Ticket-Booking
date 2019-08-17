@@ -6,8 +6,6 @@
 *
 */
 
-//try and use ranfd function
-// use files to store and retract data
 #include<stdio.h> //header file
 #include<stdlib.h>
 

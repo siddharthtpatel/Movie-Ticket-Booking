@@ -14,13 +14,12 @@
         int movie_id, customer_id, no_seats, date, month, year, time_h, time_m, age;
         char customer_type;
         float total_amount;
-	};
+	}c[10];
 
     int ticket_price, users, i, search_id, n;
 	int low, high, mid, login_id, password, g;
-	char  r, t, ignore, choice, p, b, c, m;
+	char  r, t, ignore, choice, p, b, m;
 	float total_amt; //variable declaration
-	struct customer c[10];
 
 void new_entry()//function to take new entry
 {
@@ -84,93 +83,101 @@ void new_entry()//function to take new entry
 
 void search()//searching functions
 {
-	printf("\nEnter the customer id to search the details:");
-	scanf("%d", &search_id);
+    for (i=n;i<=n;i++)
+    {
+        printf("\nEnter the customer id to search the details:");
+        scanf("%d", &search_id);
 
-	low=0;
-	high=users-1;
+        low=0;
+        high=users-1;
 
-	while(low<=high)
-	{
-		mid=(high+ low)/2;
+        while(low<=high)
+        {
+            mid=(high+ low)/2;
 
-		if(c[mid].customer_id=search_id)
-		{
-			printf("\n\nSEARCHED CUSTOMER DETAILS\n");
-			printf("\n\tcustomer id: %d", c[mid].customer_id);
-			printf("\n\tcustomer type: %c", c[mid].customer_type);
-			printf("\n\tcustomer age: %d", c[mid].age);
+            if(c[mid].customer_id=search_id)
+            {
+                printf("\n\nSEARCHED CUSTOMER DETAILS\n");
+                printf("\n\tcustomer id: %d", c[mid].customer_id);
+                printf("\n\tcustomer type: %c", c[mid].customer_type);
+                printf("\n\tcustomer age: %d", c[mid].age);
 
-			printf("\n\nMOVIE DETAILS OF THE SEARCHED CUSTOMER");
-			printf("\n\tMovie id: %d", c[mid].movie_id);
-			printf("\n\tMovie Date=%d/%d/%d", c[mid].date, c[mid].month, c[mid].year);
-			printf("\n\tMovie Time=%d:%d",  c[mid].time_h, c[mid].time_m);
-			printf("\n\tNumber of seats=%d", c[mid].no_seats);
-			printf("\n\tTotal amount= %.2f", c[mid].total_amount);
-			getch();
+                printf("\n\nMOVIE DETAILS OF THE SEARCHED CUSTOMER");
+                printf("\n\tMovie id: %d", c[mid].movie_id);
+                printf("\n\tMovie Date=%d/%d/%d", c[mid].date, c[mid].month, c[mid].year);
+                printf("\n\tMovie Time=%d:%d",  c[mid].time_h, c[mid].time_m);
+                printf("\n\tNumber of seats=%d", c[mid].no_seats);
+                printf("\n\tTotal amount= %.2f", c[mid].total_amount);
+                getch();
 
-		}
-		else if(c[mid].customer_id<search_id)
-		{
-			low=mid+1;
-		}
-		else if(c[mid].customer_id>search_id)
-		{
-			high=mid-1;
-		}
-	}
+            }
+            else if(c[mid].customer_id<search_id)
+            {
+                low=mid+1;
+            }
+            else if(c[mid].customer_id>search_id)
+            {
+                high=mid-1;
+            }
+        }
+    }
 }
-
 
 void ticket()//function of printing ticket
 {
-	printf("\n\n\t\t ____________________________________");
-	printf("\n\t\t| Movie id: %d                       |", c[i].movie_id);
-	printf("\n\t\t| customer id: %d     customer type: %c |", c[i].customer_id, c[i].customer_type);
-	printf("\n\t\t| Date=%d/%d/%d   Time=%d:%d        |", c[i].date, c[i].month, c[i].year,c[i].time_h, c[i].time_m);
-	printf("\n\t\t| No. of seats=%d   Ticket price=100   |", c[i].no_seats, ticket_price);
-	printf("\n\t\t| Total amount= %.2f                |", c[i].total_amount);
-	printf("\n\t\t|           Enjoy your show           |");
-	printf("\n\t\t ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+     for (i=n;i<=n;i++)
+    {
+        printf("\n\n\t\t ____________________________________");
+        printf("\n\t\t| Movie id: %d                       |", c[i].movie_id);
+        printf("\n\t\t| customer id: %d     customer type: %c |", c[i].customer_id, c[i].customer_type);
+        printf("\n\t\t| Date=%d/%d/%d   Time=%d:%d        |", c[i].date, c[i].month, c[i].year,c[i].time_h, c[i].time_m);
+        printf("\n\t\t| No. of seats=%d   Ticket price=100   |", c[i].no_seats, ticket_price);
+        printf("\n\t\t| Total amount= %.2f                |", c[i].total_amount);
+        printf("\n\t\t|           Enjoy your show           |");
+        printf("\n\t\t ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
 
-	printf("\n\n\t Enter\n\t 'e' to edit and reenter the values\n\t 'm' to go back to the menu");
-	printf("\n\n\t Enter :  ");
-	fflush(stdin);
-	scanf("%c", &choice);
-	switch(choice)
-	{
-		case 'm':
-			break;
-		case 'e':
-            new_entry();
-			break;
-		default :
-			printf("\n\n\t INVALID INPUT");
-			getch();
-	}
+        printf("\n\n\t Enter\n\t 'e' to edit and reenter the values\n\t 'm' to go back to the menu");
+        printf("\n\n\t Enter :  ");
+        fflush(stdin);
+        scanf("%c", &choice);
+        switch(choice)
+        {
+            case 'm':
+                break;
+            case 'e':
+                new_entry();
+                break;
+            default :
+                printf("\n\n\t INVALID INPUT");
+                getch();
+        }
+    }
 }
 
 
 void calculation()//function to calculate ticket price
 {
-	if(c[i].age<10 && c[i].customer_type=='r' )
-	{
-		total_amt=c[i].no_seats*85;
-	}
-	else if(c[i].age<10 && c[i].customer_type=='t')
-	{
-		total_amt=95*c[i].no_seats;
-	}
-	else if(c[i].age>=10 && c[i].customer_type=='r' )
-	{
-		total_amt=90*c[i].no_seats;
-	}
-	else if(c[i].age>=10 && c[i].customer_type=='t')
-	{
-		total_amt==100;
-	}
+    for (i=n;i<=n;i++)
+    {
+        if(c[i].age<10 && c[i].customer_type=='r' )
+        {
+            total_amt=c[i].no_seats*85;
+        }
+        else if(c[i].age<10 && c[i].customer_type=='t')
+        {
+            total_amt=95*c[i].no_seats;
+        }
+        else if(c[i].age>=10 && c[i].customer_type=='r' )
+        {
+            total_amt=90*c[i].no_seats;
+        }
+        else if(c[i].age>=10 && c[i].customer_type=='t')
+        {
+            total_amt==100;
+        }
 
-	c[i].total_amount=total_amt;
+        c[i].total_amount=total_amt;
+    }
 }
 
 

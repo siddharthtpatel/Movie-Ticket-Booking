@@ -6,69 +6,80 @@
 *
 */
 
-//try and use ranfd function
-// use files to store and retract data
 #include<stdio.h> //header file
 #include<stdlib.h>
 
-	int movie_id[20], customer_id[20], no_seats[20], date[20], month[20], year[20], time_h[20], time_m[20], ticket_price, age[20], users, i, search_id;
+	struct customer_id
+	{
+        int movie_id, customer_id, no_seats, date, month, year, time_h, time_m, age;
+        char customer_type;
+        float total_amount;
+	};
+
+    int ticket_price, users, i, search_id, n;
 	int low, high, mid, login_id, password, g;
-	char customer_type[20], r, t, ignore, choice, p, b, c, m;
-	float total_amt, total_amount[20]; //variable declaration
+	char  r, t, ignore, choice, p, b, c, m;
+	float total_amt; //variable declaration
+	struct customer c[10];
 
 void new_entry()//function to take new entry
 {
-	re:
-    printf("\n\t\t WELCOME TO RAVANGERS MOVIE TICKET BOOKINGS");
-	printf("\n\t\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-	printf("\n\n\n Movie ids :\t\t\t\t\t\t DISCOUNTS:  \n\n AVENGERS - 121 \t\t\t\t\t regular customer - 10%% discount \n\n JUSTICE LEAGUE - 232 \t\t\t\t\t age < 10 - 5%% discount \n\n DEADPOOL - 313 \n\n XMEN - 424  ");//information for the customer
 
-	//customer details
-	printf("\n\n\t Enter the customer id: ");
-	scanf("%d", &customer_id[i]);
-	printf("\n\n\t Enter the customer type (r=regular, t=temporary): ");
-	fflush(stdin); /*to remove the buffer memory*/
-	scanf("%c", &customer_type[i]);
-	printf("\n\n\t Enter the customer's age: ");
-	scanf("%d", &age[i]);
+    for (i=n;i<=n;i++)
+    {
 
-	//movie ticket details
-	printf("\n\n\t Enter the Movie id: ");
-	scanf("%d", &movie_id[i]);
-	printf("\n\n\t Enter the show's date in dd/mm/yyyy: ");
-	scanf("%d%c%d%c%d", &date[i],&ignore, &month[i], &ignore ,&year[i]);
-	printf("\n\n\t Enter the show's timing in hh:mm : ");
-	scanf("%d%c%d", &time_h[i], &ignore, &time_m[i]);
-	printf("\n\n\t Enter the number of seats: ");
-	scanf("%d", &no_seats[i]);
-	printf("\n\n  The ticket price is Rs 100 ");
-	getch();
+        re:
+        printf("\n\t\t WELCOME TO RAVANGERS MOVIE TICKET BOOKINGS");
+        printf("\n\t\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+        printf("\n\n\n Movie ids :\t\t\t\t\t\t DISCOUNTS:  \n\n AVENGERS - 121 \t\t\t\t\t regular customer - 10%% discount \n\n JUSTICE LEAGUE - 232 \t\t\t\t\t age < 10 - 5%% discount \n\n DEADPOOL - 313 \n\n XMEN - 424  ");//information for the customer
 
-	printf("\n\n\t Enter\n\n\t 'p' to print ticket\n\n\t 'r' to reset the details");
-	printf("\n\n\t Enter :  ");
-	fflush(stdin);
-	scanf("%c", &choice);
-	system("cls");
+        //customer details
+        printf("\n\n\t Enter the customer id: ");
+        scanf("%d", &c[i].customer_id);
+        printf("\n\n\t Enter the customer type (r=regular, t=temporary): ");
+        fflush(stdin); /*to remove the buffer memory*/
+        scanf("%c", &c[i].customer_type);
+        printf("\n\n\t Enter the customer's age: ");
+        scanf("%d", &c[i].age);
 
-	switch(choice)
-		{
-			//printing ticket
-			case 'p':
-                ticket();
-				getch();
-				break;
+        //movie ticket details
+        printf("\n\n\t Enter the Movie id: ");
+        scanf("%d", &c[i].movie_id);
+        printf("\n\n\t Enter the show's date in dd/mm/yyyy: ");
+        scanf("%d%c%d%c%d", &c[i].date,&ignore, &c[i].month, &ignore ,&c[i].year);
+        printf("\n\n\t Enter the show's timing in hh:mm : ");
+        scanf("%d%c%d", &c[i].time_h, &ignore, &c[i].time_m);
+        printf("\n\n\t Enter the number of seats: ");
+        scanf("%d", &c[i].no_seats);
+        printf("\n\n  The ticket price is Rs 100 ");
+        getch();
 
-			//printing customer details
-			case 'r':
-				goto re;
-				getch();
-				break;
+        printf("\n\n\t Enter\n\n\t 'p' to print ticket\n\n\t 'r' to reset the details");
+        printf("\n\n\t Enter :  ");
+        fflush(stdin);
+        scanf("%c", &choice);
+        system("cls");
 
-			//invalid input
-			default :
-				printf("\n\n\t INVALID INPUT");
-				getch();
-		}
+        switch(choice)
+            {
+                //printing ticket
+                case 'p':
+                    ticket();
+                    getch();
+                    break;
+
+                //printing customer details
+                case 'r':
+                    goto re;
+                    getch();
+                    break;
+
+                //invalid input
+                default :
+                    printf("\n\n\t INVALID INPUT");
+                    getch();
+            }
+    }
 }
 
 void search()//searching functions
@@ -83,27 +94,27 @@ void search()//searching functions
 	{
 		mid=(high+ low)/2;
 
-		if(customer_id[mid]=search_id)
+		if(c[mid].customer_id=search_id)
 		{
 			printf("\n\nSEARCHED CUSTOMER DETAILS\n");
-			printf("\n\tcustomer id: %d", customer_id[mid]);
-			printf("\n\tcustomer type: %c", customer_type[mid]);
-			printf("\n\tcustomer age: %d", age[mid]);
+			printf("\n\tcustomer id: %d", c[mid].customer_id);
+			printf("\n\tcustomer type: %c", c[mid].customer_type);
+			printf("\n\tcustomer age: %d", c[mid].age);
 
 			printf("\n\nMOVIE DETAILS OF THE SEARCHED CUSTOMER");
-			printf("\n\tMovie id: %d", movie_id[mid]);
-			printf("\n\tMovie Date=%d/%d/%d", date[mid], month[mid], year[mid]);
-			printf("\n\tMovie Time=%d:%d",time_h[mid], time_m[mid]);
-			printf("\n\tNumber of seats=%d", no_seats[mid]);
-			printf("\n\tTotal amount= %.2f", total_amount[mid]);
+			printf("\n\tMovie id: %d", c[mid].movie_id);
+			printf("\n\tMovie Date=%d/%d/%d", c[mid].date, c[mid].month, c[mid].year);
+			printf("\n\tMovie Time=%d:%d",  c[mid].time_h, c[mid].time_m);
+			printf("\n\tNumber of seats=%d", c[mid].no_seats);
+			printf("\n\tTotal amount= %.2f", c[mid].total_amount);
 			getch();
 
 		}
-		else if(customer_id[mid]<search_id)
+		else if(c[mid].customer_id<search_id)
 		{
 			low=mid+1;
 		}
-		else if(customer_id[mid]>search_id)
+		else if(c[mid].customer_id>search_id)
 		{
 			high=mid-1;
 		}
@@ -114,11 +125,11 @@ void search()//searching functions
 void ticket()//function of printing ticket
 {
 	printf("\n\n\t\t ____________________________________");
-	printf("\n\t\t| Movie id: %d                       |", movie_id[i]);
-	printf("\n\t\t| customer id: %d     customer type: %c |", customer_id[i], customer_type[i]);
-	printf("\n\t\t| Date=%d/%d/%d   Time=%d:%d        |", date[i], month[i], year[i],time_h[i], time_m[i]);
-	printf("\n\t\t| No. of seats=%d   Ticket price=100   |", no_seats[i], ticket_price);
-	printf("\n\t\t| Total amount= %.2f                |", total_amount[i]);
+	printf("\n\t\t| Movie id: %d                       |", c[i].movie_id);
+	printf("\n\t\t| customer id: %d     customer type: %c |", c[i].customer_id, c[i].customer_type);
+	printf("\n\t\t| Date=%d/%d/%d   Time=%d:%d        |", c[i].date, c[i].month, c[i].year,c[i].time_h, c[i].time_m);
+	printf("\n\t\t| No. of seats=%d   Ticket price=100   |", c[i].no_seats, ticket_price);
+	printf("\n\t\t| Total amount= %.2f                |", c[i].total_amount);
 	printf("\n\t\t|           Enjoy your show           |");
 	printf("\n\t\t ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
 
@@ -142,30 +153,30 @@ void ticket()//function of printing ticket
 
 void calculation()//function to calculate ticket price
 {
-
-	if(age<10 && customer_type=='r' )
+	if(c[i].age<10 && c[i].customer_type=='r' )
 	{
-		total_amt=no_seats[i]*85;
+		total_amt=c[i].no_seats*85;
 	}
-	else if(age<10 && customer_type=='t')
+	else if(c[i].age<10 && c[i].customer_type=='t')
 	{
-		total_amt=95*no_seats[i];
+		total_amt=95*c[i].no_seats;
 	}
-	else if(age>=10 && customer_type=='r' )
+	else if(c[i].age>=10 && c[i].customer_type=='r' )
 	{
-		total_amt=90*no_seats[i];
+		total_amt=90*c[i].no_seats;
 	}
-	else if(age>=10 && customer_type=='t')
+	else if(c[i].age>=10 && c[i].customer_type=='t')
 	{
 		total_amt==100;
 	}
 
-	total_amount[i]=total_amt;
+	c[i].total_amount=total_amt;
 }
 
 
 void main()
 {
+
     restart:
     system("cls");
 	printf("\n\t\t WELCOME TO RAVANGERS MOVIE TICKET BOOKINGS");
@@ -188,9 +199,10 @@ void main()
         goto restart;
 	}
     g=0;
-
+    n=0;
     while(g!=1)
     {
+
         ui:
         system("cls");
 
@@ -202,28 +214,25 @@ void main()
         scanf("%c", &choice);
 
         switch(choice)
-            {
-                case '1'://new entry
-                    new_entry();
-                    getch();
-                    break;
+        {
+            case '1'://new entry
+                new_entry();
+                getch();
+                break;
 
-                /*
-                case '2':searching
-                    search();
-                    break
-                */
+            case '2'://searching
+                search();
+                break;
 
+            case 'e'://exit
+                g=1;
+                break;
 
-                case 'e'://exit
-                    g=1;
-                    break;
-
-                default :
-                    printf("\n\n\t INVALID INPUT");
-                    getch();
-            }
+            default :
+                printf("\n\n\t INVALID INPUT");
+                getch();
+        }
+        n++;
     }
 
-    return 0;
 }

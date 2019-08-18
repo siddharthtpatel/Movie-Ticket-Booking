@@ -16,7 +16,7 @@
         float total_amount;
 	}c[10];
 
-    int ticket_price, users, i, search_id, n;
+    int ticket_price, users, i, search_id, n, ed;
 	int low, high, mid, login_id, password, g;
 	char  r, t, ignore, choice, p, b, m;
 	float total_amt; //variable declaration
@@ -81,6 +81,15 @@ void new_entry()//function to take new entry
     }
 }
 
+void edit()
+{
+    printf("Enter the id of the customer to edit:");
+    scanf("%d",&ed);
+    n=ed;
+    new_entry();
+}
+
+
 void search()//searching functions
 {
     for (i=n;i<=n;i++)
@@ -108,8 +117,7 @@ void search()//searching functions
                 printf("\n\tMovie Time=%d:%d",  c[mid].time_h, c[mid].time_m);
                 printf("\n\tNumber of seats=%d", c[mid].no_seats);
                 printf("\n\tTotal amount= %.2f", c[mid].total_amount);
-                printf("\n\n\t Press any key to go back to the main menu");
-		getch();
+                getch();
 
             }
             else if(c[mid].customer_id<search_id)
@@ -137,7 +145,7 @@ void ticket()//function of printing ticket
         printf("\n\t\t|           Enjoy your show           |");
         printf("\n\t\t ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
 
-        printf("\n\n\t Enter\n\t 'e' to edit and re-enter the values\n\t 'm' to go back to the menu");
+        printf("\n\n\t Enter\n\t 'e' to edit and reenter the values\n\t 'm' to go back to the menu");
         printf("\n\n\t Enter :  ");
         fflush(stdin);
         scanf("%c", &choice);
@@ -217,7 +225,7 @@ void main()
         printf("\n\t\t WELCOME TO RAVANGERS MOVIE TICKET BOOKINGS");
         printf("\n\t\t ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
         printf("\n\tMAIN MENU\n");
-        printf("\n\n\tENTER \n\t '1' to take a new entry \n\t '2' search ticket \n\t 'e' to exit\n\n\t--> ");
+        printf("\n\n\tENTER \n\t '1' to take a new entry \n\t '2' search ticket \n\t 'e' to edit \n\t 'q' to exit\n\n\t--> ");
         fflush(stdin);
         scanf("%c", &choice);
 
@@ -232,7 +240,11 @@ void main()
                 search();
                 break;
 
-            case 'e'://exit
+            case 'e'://edit
+                edit();
+                break;
+
+            case 'q'://exit
                 g=1;
                 break;
 

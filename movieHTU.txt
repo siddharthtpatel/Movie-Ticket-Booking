@@ -1,0 +1,12 @@
+HOW TO USE
+=> The user gets option to generate multiple ticket, edit the date and search for the entered data
+=> Login id - 12345
+   Password - 0000
+=> The customer id to be noted in order (0,1,2,3.....)
+=> Editing the the filled data will reset the data
+=> Ticket Discounts
+	5% for customers less than the age of 10
+	10% for regular customers
+=> All the values to be entered should be case sensitive
+=> After every function the user will get an option to go back to the main menu or repeat/edit what the user has entered
+=> the user also has an option to exit

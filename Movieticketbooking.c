@@ -136,7 +136,7 @@ void ticket()//function of printing ticket
         printf("\n\t\t|           Enjoy your show           |");
         printf("\n\t\t ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
 
-        printf("\n\n\t Enter\n\t 'e' to edit and reenter the values\n\t 'm' to go back to the menu");
+        printf("\n\n\t Enter\n\t 'e' to edit and re-enter the values\n\t 'm' to go back to the menu");
         printf("\n\n\t Enter :  ");
         fflush(stdin);
         scanf("%c", &choice);

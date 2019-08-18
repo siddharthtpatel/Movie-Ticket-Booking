@@ -108,7 +108,8 @@ void search()//searching functions
                 printf("\n\tMovie Time=%d:%d",  c[mid].time_h, c[mid].time_m);
                 printf("\n\tNumber of seats=%d", c[mid].no_seats);
                 printf("\n\tTotal amount= %.2f", c[mid].total_amount);
-                getch();
+                printf("\n\n\t Press any key to go back to the main menu");
+		getch();
 
             }
             else if(c[mid].customer_id<search_id)
